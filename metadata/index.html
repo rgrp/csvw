@@ -95,7 +95,7 @@ GID,On Street,Species,Trim Cycle,Inventory Date
     "name": "Example Municipality",
     "web": "http://example.org"
   }],
-  "license": "cc-by",
+  "license": "PDDL-1.0",
   "resources": [{
     "name": "tree-ops",
     "path": "tree-ops.csv",
@@ -138,7 +138,7 @@ GID,On Street,Species,Trim Cycle,Inventory Date
           Above is unaltered datapackage JSON. If we focus on just single file metadata, try to throw in some JSON-LD naming conventions and use terminology from the model document, we get something more like:
         </p>
         <pre class="highlight">
-[{
+{
   "@id": "tree-ops.csv",
   "@type": "Table",
   "title": "Tree Operations",
@@ -147,36 +147,41 @@ GID,On Street,Species,Trim Cycle,Inventory Date
     "name": "Example Municipality",
     "web": "http://example.org"
   }],
-  "license": "http://opendefinition.org/licenses/cc-by/",
-  "modified": "2010-12-31",
-  "columns": [{
-    "@id": "_:GID",
-    "name": "GID",
-    "title": "Generic Identifier",
-    "description": "An identifier for the operation on a tree.",
-    "type": "string",
-    "required": true,
-    "unique": true
-  }, {
-    "name": "On Street",
-    "description": "The street that the tree is on.",
-    "type": "string"
-  }, {
-    "name": "Species",
-    "description": "The species of the tree.",
-    "type": "string"
-  }, {
-    "name": "Trim Cycle",
-    "description": "The operation performed on the tree.",
-    "type": "string"
-  }, {
-    "name": "Inventory Date",
-    "description": "The date of the operation that was performed.",
-    "type": "date",
-    "format": "M/D/YYYY"
+  "licenses": [{
+    "type": "PDDL-1.0",
+    "url": "http://opendefinition.org/licenses/pddl/"
   }]
-  "primaryKey": "_:GID"  
-}]
+  "modified": "2010-12-31",
+  "schema": {
+    "columns": [{
+      "name": "GID",
+      "title": "Generic Identifier",
+      "description": "An identifier for the operation on a tree.",
+      "type": "string",
+    }, {
+      "name": "On Street",
+      "description": "The street that the tree is on.",
+      "type": "string"
+    }, {
+      "name": "Species",
+      "description": "The species of the tree.",
+      "type": "string"
+    }, {
+      "name": "Trim Cycle",
+      "description": "The operation performed on the tree.",
+      "type": "string"
+    }, {
+      "name": "Inventory Date",
+      "description": "The date of the operation that was performed.",
+      "type": "date",
+      "format": "M/D/YYYY"
+    }]
+    "primaryKey": "GID"
+  },
+  "notes": [
+    # list of note objects - spec for note to be determined
+  ]
+}
         </pre>
         <p>
           The JSON-LD context would roughly look like:
